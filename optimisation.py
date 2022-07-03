@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from plot_utils import plotCurves
 
 
 def simulated_annealing(f,x,T,k_max):
@@ -29,6 +28,11 @@ def simulated_annealing(f,x,T,k_max):
         k += 0.5
     return x_best,y_best
 
+"""
+
+# this section here is to test the SA algorithm on a function with many local extrema
+# uncomment and run to see the demonstration
+
 def f(x):
     return np.sin(x**2 - x) - np.cos(5*x - 2)**2
 
@@ -38,7 +42,9 @@ def df(x):
 x = np.linspace(-2,2,1000)
 y = f(x)
 
-plotCurves(0,x,y,label='f',title='function to optimise')
+plt.figure(0,figsize=(10,5))
+plt.grid(True)
+plt.plot(x,y,color = 'tab:blue')
 
 x0 = x[np.random.randint(0,1000)]
 plt.scatter(x0,f(x0),color = 'tab:red')
@@ -52,3 +58,4 @@ plt.scatter(x_best,y_best,color = 'tab:green',label = 'simulated annealing')
 plt.scatter(x_opt,f(x_opt),color = 'tab:purple',label = 'gradient descent')
 
 plt.show()
+"""
